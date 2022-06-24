@@ -1,0 +1,45 @@
+adwcolor reset >> deletes ~/.config/gtk-4.0/gtk.css                        [X]
+adwcolor install cssfile >> replaces gtk.css theme with new one            [X]
+adwcolor export path >> export .adwcolor file                              [X]
+adwcolor modify cssprop >> edits current theme                             [X]
+adwcolor restore cssprop >> undos specific csschange                       [X]
+adwcolor convert4 themename >> Creates color scheme from existing theme    [ ]
+adwcolor convert3 themename path >> Convert LibAdwaita theme to Gtk theme  [ ]
+
+
+colors list:
+
+accent_bg_color
+accent_fg_color
+accent_color
+destructive_bg_color
+destructive_fg_color
+destructive_color
+success_bg_color
+success_fg_color 
+success_color
+warning_bg_color
+warning_fg_color
+warning_color
+error_bg_color
+error_fg_color
+error_color
+window_bg_color
+window_fg_color
+view_bg_color
+view_fg_color
+headerbar_bg_color
+headerbar_fg_color
+headerbar_border_color
+headerbar_backdrop_color
+headerbar_shade_color
+card_bg_color
+card_fg_color
+card_shade_color
+popover_bg_color
+popover_fg_color
+shade_color
+scrollbar_outline_color
+
+implementation:
+
