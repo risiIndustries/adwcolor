@@ -13,6 +13,7 @@ BuildRequires:  python3-devel
 Requires: 		python3.10
 Recommends:		adw-gtk-theme
 
+%prep
 %autosetup -n %{name}-main
 
 %build
