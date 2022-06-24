@@ -1,6 +1,6 @@
 Name:           adwcolor
 Version:        1.0
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Easily modify and create Libadwaita color themes
 
 License:        GPL v3
