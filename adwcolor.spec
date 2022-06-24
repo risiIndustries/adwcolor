@@ -36,7 +36,7 @@ ln -f -s %{python3_sitelib}/__main__.py %{_bindir}/adwcolor
 %dir %{python3_sitelib}/adwcolor
 %{python3_sitelib}/adwcolor/*.py
 %{python3_sitelib}/adwcolor/__pycache__/*.pyc
-%ghost {_bindir}/adwcolor
+%ghost /{_bindir}/adwcolor
 %license LICENSE
 
 %changelog
