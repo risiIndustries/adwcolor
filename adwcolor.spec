@@ -1,6 +1,6 @@
 Name:           adwcolor
 Version:        1.0
-Release:        3%{?dist}
+Release:        4%{?dist}
 Summary:        Easily modify and create Libadwaita color themes
 
 License:        GPL v3
@@ -25,12 +25,7 @@ mkdir -p %{buildroot}%{python3_sitelib}/adwcolor
 mkdir -p %{buildroot}%{_bindir}
 
 install -m 0755 *.py %{buildroot}%{python3_sitelib}/adwcolor
-
-%post
-ln -f -s %{python3_sitelib}/__main__.py %{_bindir}/adwcolor
-
-%postun
-rf -f %{_bindir}/adwcolor
+install -m 0755 __main__.py %{buildroot}%{_bindir}/adwcolor
 
 %files
 # %license add-license-file-here
@@ -38,7 +33,7 @@ rf -f %{_bindir}/adwcolor
 %dir %{python3_sitelib}/adwcolor
 %{python3_sitelib}/adwcolor/*.py
 %{python3_sitelib}/adwcolor/__pycache__/*.pyc
-%ghost /{_bindir}/adwcolor
+{_bindir}/adwcolor
 %license LICENSE
 
 %changelog
