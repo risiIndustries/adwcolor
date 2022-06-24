@@ -10,7 +10,7 @@ Source0:        https://github.com/risiOS/adwcolor/archive/refs/heads/main.tar.g
 BuildArch:	noarch
 
 BuildRequires:  python3-devel
-Requires: 		python3.10
+Requires: 		python3
 Recommends:		adw-gtk-theme
 
 %description
@@ -20,6 +20,8 @@ Easily Modify and create Libadwaita color themes by modifying the ~/.config/gtk-
 %autosetup -n %{name}-main
 
 %build
+sed -i 's/sitepackage/%{python3_sitelib}/g' adwcolor
+
 %install
 mkdir -p %{buildroot}%{python3_sitelib}/adwcolor
 mkdir -p %{buildroot}%{_bindir}
