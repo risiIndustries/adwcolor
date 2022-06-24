@@ -1,4 +1,0 @@
-#!/usr/bin/env sh
-python3 sitepackage/__main__.py
-
-# sitepackage should be replaced by the package manager.

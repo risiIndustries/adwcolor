@@ -34,22 +34,22 @@ if __name__ == "__main__":
 
     match sys.argv[1]:
         case "reset":
-            functions.reset()
+            adwcolor.functions.reset()
         case "install":
             check_arguments(2)
-            functions.install(sys.argv[2])
+            adwcolor.functions.install(sys.argv[2])
         case "export":
             check_arguments(2)
-            functions.export(sys.argv[2])
+            adwcolor.functions.export(sys.argv[2])
         case "modify":
             check_arguments(3)
-            functions.check_properties(sys.argv[2])
-            functions.modify(sys.argv[2], sys.argv[3])
+            adwcolor.functions.check_properties(sys.argv[2])
+            adwcolor.functions.modify(sys.argv[2], sys.argv[3])
         case "restore":
             check_arguments(2)
-            functions.check_properties(sys.argv[2])
-            functions.restore(sys.argv[2])
+            adwcolor.functions.check_properties(sys.argv[2])
+            adwcolor.functions.restore(sys.argv[2])
         case "listproperties":
-            functions.list_properties()
+            adwcolor.functions.list_properties()
         case default:
             help_prompt()
