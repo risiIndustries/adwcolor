@@ -33,7 +33,7 @@ install -m 0755 __main__.py %{buildroot}%{_bindir}/adwcolor
 %dir %{python3_sitelib}/adwcolor
 %{python3_sitelib}/adwcolor/*.py
 %{python3_sitelib}/adwcolor/__pycache__/*.pyc
-{_bindir}/adwcolor
+%{_bindir}/adwcolor
 %license LICENSE
 
 %changelog
