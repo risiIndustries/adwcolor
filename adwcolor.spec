@@ -25,7 +25,10 @@ mkdir -p %{buildroot}%{python3_sitelib}/adwcolor
 mkdir -p %{buildroot}%{_bindir}
 
 install -m 0755 *.py %{buildroot}%{python3_sitelib}/adwcolor
-ln -s %{buildroot}%{python3_sitelib}/__main__.py %{buildroot}%{_bindir}/adwcolor
+touch %{_bindir}/adwcolor
+
+%post
+ln -f -s %{python3_sitelib}/__main__.py %{_bindir}/adwcolor
 
 %files
 # %license add-license-file-here
@@ -33,7 +36,7 @@ ln -s %{buildroot}%{python3_sitelib}/__main__.py %{buildroot}%{_bindir}/adwcolor
 %dir %{python3_sitelib}/adwcolor
 %{python3_sitelib}/adwcolor/*.py
 %{python3_sitelib}/adwcolor/__pycache__/*.pyc
-%{_bindir}/adwcolor
+%ghost {_bindir}/adwcolor
 %license LICENSE
 
 %changelog
