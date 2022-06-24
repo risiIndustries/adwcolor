@@ -1,0 +1,20 @@
+/*    nord colors - use with dark style selected From notc00l on Reddit... Used for testing.    */
+/* https://www.reddit.com/r/gnome/comments/tp3v7d/theming_in_libadwaita_is_pretty_nice/i28pug0/ */
+
+@define-color accent_color @green_4;
+@define-color accent_bg_color @green_4;
+
+@define-color window_bg_color #2E3440;
+@define-color window_fg_color white;
+
+@define-color headerbar_bg_color #3B4252;
+@define-color headerbar_fg_color white;
+
+@define-color popover_bg_color #434C5E;
+@define-color popover_fg_color white;
+
+@define-color view_bg_color #2E3440;
+@define-color view_fg_color white;
+
+@define-color card_bg_color rgba(255, 255, 255, 0.08);
+@define-color card_fg_color white;
