@@ -20,7 +20,7 @@ Easily Modify and create Libadwaita color themes by modifying the ~/.config/gtk-
 %autosetup -n %{name}-main
 
 %build
-sed -i 's/sitepackage/%{python3_sitelib}/g' adwcolor
+sed -i 's;sitepackage;%{python3_sitelib};g' adwcolor
 
 %install
 mkdir -p %{buildroot}%{python3_sitelib}/adwcolor
