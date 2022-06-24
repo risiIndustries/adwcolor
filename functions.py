@@ -6,6 +6,17 @@ HOME_ = os.path.expanduser('~')
 CSS_FILE_ = f"{HOME_}/.config/gtk-4.0/gtk.css"
 
 
+def check_properties(prop):
+    if prop not in properties:
+        print("Invalid property.\nPlease run \"adwcolor listproperties\" to list currently existing properties.")
+        exit(1)
+
+
+def list_properties():
+    for prop in properties:
+        print(prop)
+
+
 def get_file_data():
     with open(CSS_FILE_, "r") as file:
         return file.readlines()
@@ -55,14 +66,3 @@ def install(file):
 
 def export(file):
     shutil.copyfile(CSS_FILE_, file)
-
-
-def check_properties(prop):
-    if prop not in properties:
-        print("Invalid property.\nPlease run \"adwcolor listproperties\" to list currently existing properties.")
-        exit(1)
-
-
-def list_properties():
-    for prop in properties:
-        print(prop)
