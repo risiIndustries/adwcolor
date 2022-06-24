@@ -13,6 +13,10 @@ BuildRequires:  python3-devel
 Requires: 		python3.10
 Recommends:		adw-gtk-theme
 
+%description
+Easily Modify and create Libadwaita color themes by modifying the ~/.config/gtk-4.0/gtk.css.
+
+%prep
 %autosetup -n %{name}-main
 
 %build
