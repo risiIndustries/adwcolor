@@ -33,6 +33,8 @@ install -m 0755 adwcolor %{buildroot}%{_bindir}/adwcolor
 # %license add-license-file-here
 # %doc add-docs-here
 %dir %{python3_sitelib}/adwcolor
+%{python3_sitelib}/adwcolor/*.py
+%{python3_sitelib}/adwcolor/__pycache__*.pyc
 %{_bindir}/adwcolor
 %license LICENSE
 
