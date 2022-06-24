@@ -1,6 +1,8 @@
+#!/usr/bin/env python3.10
+
 import sys
 
-import functions
+import adwcolor.functions
 
 
 def help_prompt():
@@ -18,35 +20,36 @@ Modifying Current Theme
     """)
 
 
-if len(sys.argv) < 2:
-    help_prompt()
-    exit(1)
-
-
-def check_arguments(arg):
-    if not len(sys.argv) - 1 == arg:
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
         help_prompt()
         exit(1)
 
 
-match sys.argv[1]:
-    case "reset":
-        functions.reset()
-    case "install":
-        check_arguments(2)
-        functions.install(sys.argv[2])
-    case "export":
-        check_arguments(2)
-        functions.export(sys.argv[2])
-    case "modify":
-        check_arguments(3)
-        functions.check_properties(sys.argv[2])
-        functions.modify(sys.argv[2], sys.argv[3])
-    case "restore":
-        check_arguments(2)
-        functions.check_properties(sys.argv[2])
-        functions.restore(sys.argv[2])
-    case "listproperties":
-        functions.list_properties()
-    case default:
-        help_prompt()
+    def check_arguments(arg):
+        if not len(sys.argv) - 1 == arg:
+            help_prompt()
+            exit(1)
+
+
+    match sys.argv[1]:
+        case "reset":
+            functions.reset()
+        case "install":
+            check_arguments(2)
+            functions.install(sys.argv[2])
+        case "export":
+            check_arguments(2)
+            functions.export(sys.argv[2])
+        case "modify":
+            check_arguments(3)
+            functions.check_properties(sys.argv[2])
+            functions.modify(sys.argv[2], sys.argv[3])
+        case "restore":
+            check_arguments(2)
+            functions.check_properties(sys.argv[2])
+            functions.restore(sys.argv[2])
+        case "listproperties":
+            functions.list_properties()
+        case default:
+            help_prompt()

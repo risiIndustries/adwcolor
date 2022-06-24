@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+python3.10 /usr/lib64/python3.10/site-packages/adwcolor/__main__.py

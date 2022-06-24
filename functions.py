@@ -1,6 +1,6 @@
 import os
 import shutil
-from properties import properties
+from adwcolor.properties import properties
 
 HOME_ = os.path.expanduser('~')
 CSS_FILE_ = f"{HOME_}/.config/gtk-4.0/gtk.css"
