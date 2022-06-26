@@ -54,6 +54,14 @@ def restore(prop):
     write(new_lines)
 
 
+def get_value(prop):
+    lines = get_file_data()
+
+    for line in lines:
+        if not line.startswith(f"@define-color {prop}"):
+            return line.replace(f"@define-color {prop} ", "")
+
+
 def reset():
     if os.path.exists(CSS_FILE_):
         os.remove(CSS_FILE_)

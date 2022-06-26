@@ -1,6 +1,6 @@
 Name:           adwcolor
-Version:        1.0
-Release:        4%{?dist}
+Version:        1.0.1
+Release:        5%{?dist}
 Summary:        Easily modify and create Libadwaita color themes
 
 License:        GPL v3
@@ -37,5 +37,8 @@ install -m 0755 __main__.py %{buildroot}%{_bindir}/adwcolor
 %license LICENSE
 
 %changelog
+* Sun Jun 26 2022 PizzaLovingNerd
+- Added "get_value" function
+
 * Fri Jun 24 2022 PizzaLovingNerd
 - First spec file
