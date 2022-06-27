@@ -5,6 +5,18 @@ from adwcolor.properties import properties
 HOME_ = os.path.expanduser('~')
 CSS_FILE_ = f"{HOME_}/.config/gtk-4.0/gtk.css"
 
+if not os.path.exists:
+    open('data.py', 'w+')
+
+
+def get_value(prop):
+    lines = get_file_data()
+
+    for line in lines:
+        if line.startswith(f"@define-color {prop}"):
+            return line.replace(f"@define-color {prop} ", "").replace(";\n", "")
+    return None
+
 
 def check_properties(prop):
     if prop not in properties:
@@ -23,7 +35,7 @@ def get_file_data():
 
 
 def write(data):
-    with open(CSS_FILE_, "w") as file:
+    with open(CSS_FILE_, "w+") as file:
         file.writelines(data)
 
 
@@ -52,14 +64,6 @@ def restore(prop):
         if not line.startswith(f"@define-color {prop}"):
             new_lines.append(line)
     write(new_lines)
-
-
-def get_value(prop):
-    lines = get_file_data()
-
-    for line in lines:
-        if not line.startswith(f"@define-color {prop}"):
-            return line.replace(f"@define-color {prop} ", "")
 
 
 def reset():
