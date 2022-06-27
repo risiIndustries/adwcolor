@@ -4,9 +4,12 @@ from adwcolor.properties import properties
 
 HOME_ = os.path.expanduser('~')
 CSS_FILE_ = f"{HOME_}/.config/gtk-4.0/gtk.css"
+CSS_FILE_3_ = f"{HOME_}/.config/gtk-3.0/gtk.css"
 
-if not os.path.exists:
-    open('data.py', 'w+')
+if not os.path.exists(CSS_FILE_):  # Create Gtk4 config file
+    open(CSS_FILE_, 'w+')
+if not os.path.exists(CSS_FILE_3_):  # Symlink gtk4 config file to gtk3
+    os.symlink(CSS_FILE_, CSS_FILE_3_)
 
 
 def get_value(prop):
@@ -69,6 +72,8 @@ def restore(prop):
 def reset():
     if os.path.exists(CSS_FILE_):
         os.remove(CSS_FILE_)
+    if os.path.exists(CSS_FILE_3_):
+        os.remove(CSS_FILE_3_)
 
 
 def install(file):

@@ -16,7 +16,7 @@ Basic Management
 Modifying Current Theme
   adwcolor listproperties                       Lists available properties to modify.
   adwcolor modify <property> <value>            Set property to css color. (ex: "adwcolor modify accent_color @green_4")
-  adwcolor restore <property>                   Restore modified property to default. (ex: "adwcolor restore accent_color)
+  adwcolor default <property>                   Restore modified property to default. (ex: "adwcolor restore accent_color)
     """)
 
 
@@ -34,21 +34,27 @@ if __name__ == "__main__":
 
     match sys.argv[1]:
         case "reset":
+            check_arguments(1)
             adwcolor.functions.reset()
+            print("Libadwaita theme reset.")
         case "install":
             check_arguments(2)
             adwcolor.functions.install(sys.argv[2])
+            print("Installation successful.")
         case "export":
             check_arguments(2)
             adwcolor.functions.export(sys.argv[2])
+            print(f"Exported to {sys.argv[2]}.")
         case "modify":
             check_arguments(3)
             adwcolor.functions.check_properties(sys.argv[2])
             adwcolor.functions.modify(sys.argv[2], sys.argv[3])
-        case "restore":
+            print(f"{sys.argv[2]} set to {sys.argv[3]}.")
+        case "default":
             check_arguments(2)
             adwcolor.functions.check_properties(sys.argv[2])
             adwcolor.functions.restore(sys.argv[2])
+            print(f"{sys.argv[2]} restored to default.")
         case "listproperties":
             adwcolor.functions.list_properties()
         case default:
