@@ -6,6 +6,13 @@ HOME_ = os.path.expanduser('~')
 CSS_FILE_ = f"{HOME_}/.config/gtk-4.0/gtk.css"
 CSS_FILE_3_ = f"{HOME_}/.config/gtk-3.0/gtk.css"
 
+# Create CSS directories if they don't exist
+if not os.path.exists(f"{HOME_}/.config/gtk-4.0"):
+    os.makedirs(f"{HOME_}/.config/gtk-4.0")
+if not os.path.exists(f"{HOME_}/.config/gtk-3.0"):
+    os.makedirs(f"{HOME_}/.config/gtk-3.0")
+
+# Create CSS file if it doesn't exist
 if not os.path.exists(CSS_FILE_):  # Create Gtk4 config file
     open(CSS_FILE_, 'w+')
 if not os.path.exists(CSS_FILE_3_):  # Symlink gtk4 config file to gtk3
