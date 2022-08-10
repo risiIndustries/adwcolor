@@ -6,17 +6,23 @@ HOME_ = os.path.expanduser('~')
 CSS_FILE_ = f"{HOME_}/.config/gtk-4.0/gtk.css"
 CSS_FILE_3_ = f"{HOME_}/.config/gtk-3.0/gtk.css"
 
-# Create CSS directories if they don't exist
-if not os.path.exists(f"{HOME_}/.config/gtk-4.0"):
-    os.makedirs(f"{HOME_}/.config/gtk-4.0")
-if not os.path.exists(f"{HOME_}/.config/gtk-3.0"):
-    os.makedirs(f"{HOME_}/.config/gtk-3.0")
 
-# Create CSS file if it doesn't exist
-if not os.path.exists(CSS_FILE_):  # Create Gtk4 config file
-    open(CSS_FILE_, 'w+')
-if not os.path.exists(CSS_FILE_3_):  # Symlink gtk4 config file to gtk3
-    os.symlink(CSS_FILE_, CSS_FILE_3_)
+# Creates the environment for theming if it doesn't exist
+def create_environment():
+    # Create CSS directories if they don't exist
+    if not os.path.exists(f"{HOME_}/.config/gtk-4.0"):
+        os.makedirs(f"{HOME_}/.config/gtk-4.0")
+    if not os.path.exists(f"{HOME_}/.config/gtk-3.0"):
+        os.makedirs(f"{HOME_}/.config/gtk-3.0")
+
+    # Create CSS file if it doesn't exist
+    if not os.path.exists(CSS_FILE_):  # Create Gtk4 config file
+        open(CSS_FILE_, 'w+')
+    if not os.path.exists(CSS_FILE_3_):  # Symlink gtk4 config file to gtk3
+        os.symlink(CSS_FILE_, CSS_FILE_3_)
+
+
+create_environment()
 
 
 def get_value(prop):
@@ -28,18 +34,13 @@ def get_value(prop):
     return None
 
 
-def check_properties(prop):
-    if prop not in properties:
-        print("Invalid property.\nPlease run \"adwcolor listproperties\" to list currently existing properties.")
-        exit(1)
-
-
 def list_properties():
     for prop in properties:
         print(prop)
 
 
 def get_file_data():
+    create_environment()
     with open(CSS_FILE_, "r") as file:
         return file.readlines()
 
@@ -86,6 +87,7 @@ def reset():
         os.remove(CSS_FILE_)
     if os.path.exists(CSS_FILE_3_):
         os.remove(CSS_FILE_3_)
+    create_environment()
 
 
 def install(file):

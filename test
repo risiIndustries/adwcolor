@@ -1,0 +1,7 @@
+rm -rf /usr/lib/python3.10/site-packages/adwcolor
+rm /bin/adwcolor
+
+mkdir -p /usr/lib/python3.10/site-packages/adwcolor
+
+install -m 0755 *.py /usr/lib/python3.10/site-packages/adwcolor
+install -m 0755 __main__.py /bin/adwcolor
