@@ -66,7 +66,12 @@ def modify(prop, value):
     write(new_lines)
 
 
+# Deprecated function
 def restore(prop):
+    default(prop)
+
+
+def default(prop):
     lines = get_file_data()
     new_lines = []
 
